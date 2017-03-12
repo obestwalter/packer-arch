@@ -9,7 +9,7 @@ else
 	DISK='/dev/sda'
 fi
 
-FQDN='vagrant-arch.vagrantup.com'
+FQDN='bindlestiff-arch.vagrantup.com'
 KEYMAP='us'
 LANGUAGE='en_US.UTF-8'
 PASSWORD=$(/usr/bin/openssl passwd -crypt 'vagrant')
