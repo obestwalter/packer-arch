@@ -23,6 +23,7 @@ sed -i '$ a\\ eval "$(pyenv init -)"' $HOME/.bashrc
 sed -i '$ a\\ echo "Removing all *.pyc files in mapped project ..."' $HOME/.bashrc
 sed -i '$ a\\ find /vagrant -name '*.pyc' -delete' $HOME/.bashrc
 sed -i '$ a\\ cd /vagrant' $HOME/.bashrc
+sed -i '$ a\\ echo "WARNING you need to remove .pyc when you switch runs between guest and host"' $HOME/.bashrc
 
 INTERPRETERS="3.6.0 2.6.9 2.7.13 3.3.6 3.4.5 3.5.2 pypy2-5.6.0"
 echo "===> Install Python versions: $INTERPRETERS"
