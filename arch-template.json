@@ -128,12 +128,17 @@
             "type": "vagrant",
             "output": "output/packer_arch_{{ .Provider }}.box"
         },
-      {
-        "type": "atlas",
-        "token": "{{user `atlas_token`}}",
-        "artifact": "obestwalter/bindlestiff-arch-linux",
-        "artifact_type": "amazon.image",
-        "metadata": { "created_at": "{{timestamp}}" }
-      }
+        {
+            "type": "atlas",
+            "token": "{{user `atlas_token`}}",
+            "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
+            "only": ["virtualbox-iso"],
+            "artifact_type": "vagrant.box",
+            "metadata": {
+                "created_at": "{{timestamp}}",
+                "provider": "virtualbox",
+                "version": "0.0.1"
+            }
+        }
     ]
 }
