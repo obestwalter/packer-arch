@@ -115,6 +115,11 @@
         {
             "type": "shell",
             "execute_command": "{{ .Vars }} sudo -E -S bash '{{ .Path }}'",
+            "script": "scripts/bindlestiff.sh"
+        },
+        {
+            "type": "shell",
+            "execute_command": "{{ .Vars }} sudo -E -S bash '{{ .Path }}'",
             "script": "scripts/cleanup.sh"
         }
     ],
@@ -122,6 +127,13 @@
         {
             "type": "vagrant",
             "output": "output/packer_arch_{{ .Provider }}.box"
-        }
+        },
+      {
+        "type": "atlas",
+        "token": "{{user `atlas_token`}}",
+        "artifact": "obestwalter/bindlestiff-arch-linux",
+        "artifact_type": "amazon.image",
+        "metadata": { "created_at": "{{timestamp}}" }
+      }
     ]
 }
